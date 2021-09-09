@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19",
+    "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "proxy-compare": "^2.0.2"
   },

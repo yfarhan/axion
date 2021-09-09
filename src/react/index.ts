@@ -5,13 +5,12 @@ export const useSnapshot = <T extends object>(proxyObject: T) => {
 
   const p = useRef(
     new Proxy(proxyObject, {
-      set(target, prop, value) {
+      set(target: any, prop, value) {
         target[prop] = value;
         forceUpdate();
         return true;
       },
       get(target, prop, receiver) {
-        console.log('-get-', target, receiver);
         return target[prop];
       },
     })
