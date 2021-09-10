@@ -1,2 +1,1 @@
-export { useSnapshot } from './react';
-export { proxy } from './vanilla';
+export { proxy, useAxion } from './vanilla';
