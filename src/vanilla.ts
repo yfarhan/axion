@@ -16,7 +16,7 @@ export const useAxion = <T extends object>(state: T) => {
   }, []);
 
   return new Proxy(state, {
-    set(target: T extends object, prop: string, value) {
+    set(target: any, prop: string, value) {
       listeners.get(state).forEach((l: Function) => l());
 
       target[prop] = value;
@@ -25,6 +25,6 @@ export const useAxion = <T extends object>(state: T) => {
   });
 };
 
-export const proxy = <T extends object>(initialObject: T = {} as T): any => {
+export const proxy = <T extends object>(initialObject: T = {} as T): T => {
   return createProxy(initialObject, affected);
 };
