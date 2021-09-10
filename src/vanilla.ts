@@ -4,7 +4,7 @@ import { createProxy } from 'proxy-compare';
 const listeners = new WeakMap();
 const affected = new WeakMap();
 
-export const useAxion = (state: any, id) => {
+export const useAxion = <T extends object>(state: T) => {
   const fn = useReducer((c) => c + 1, [])[1];
 
   useLayoutEffect(() => {
@@ -16,8 +16,8 @@ export const useAxion = (state: any, id) => {
   }, []);
 
   return new Proxy(state, {
-    set(target, prop, value) {
-      listeners.get(state).forEach((l) => l());
+    set(target: T extends object, prop: string, value) {
+      listeners.get(state).forEach((l: Function) => l());
 
       target[prop] = value;
       return true;

@@ -1,3 +1,3 @@
-## Riki
+## Axion
 
-Simple state management for React.
+Simple proxy state management for React.
